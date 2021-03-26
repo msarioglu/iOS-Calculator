@@ -1,0 +1,70 @@
+<ion-content>
+  <ion-grid no-padding no-margin>
+    <ion-row class="display-row">
+      <ion-col col-12 *ngIf="errorMessage">
+          <div id="error">{{ errorMessage }}</div>
+      </ion-col>
+      <ion-col col-12>
+        <div id="display">{{ displayValue }}</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col no-margin no-padding col-4 class="{{ isLandscape }}">
+        <ion-row>
+          <button ion-button col-6 color="secondary" disabled>(</button>
+          <button ion-button col-6 color="secondary" disabled>)</button>
+        </ion-row>
+        <ion-row>
+          <button ion-button col-6 color="secondary" disabled>2nd</button>
+          <button ion-button col-6 color="secondary" (click)="touchUnaryOperator($event)">×²</button>
+        </ion-row>
+        <ion-row>
+          <button ion-button col-6 color="secondary" disabled>1/x</button>
+          <button ion-button col-6 color="secondary" disabled>²√x</button>
+        </ion-row>
+        <ion-row>
+          <button ion-button col-6 color="secondary" (click)="touchUnaryOperator($event)">X!</button>
+          <button ion-button col-6 color="secondary" (click)="touchUnaryOperator($event)">SIN</button>
+        </ion-row>
+        <ion-row>
+          <button ion-button col-6 color="secondary" disabled>Rad</button>
+          <button ion-button col-6 color="secondary" (click)="touchUnaryOperator($event)">SINH</button>
+        </ion-row>
+      </ion-col>
+
+      <ion-col>
+        <ion-row>
+          <button ion-button col color="secondary" (click)="allClear()">{{ clearButtonText }}</button>
+          <button ion-button col color="secondary" (click)="touchUnaryOperator($event)">+/-</button>
+          <button ion-button col color="secondary" (click)="touchUnaryOperator($event)">%</button>
+          <button ion-button col color="primary" (click)="touchBinaryOperator($event)">÷</button>
+        </ion-row>
+        <ion-row>
+          <button ion-button col color="light" (click)="touchDigit($event)">7</button>
+          <button ion-button col color="light" (click)="touchDigit($event)">8</button>
+          <button ion-button col color="light" (click)="touchDigit($event)">9</button>
+          <button ion-button col color="primary" (click)="touchBinaryOperator($event)">×</button>
+        </ion-row>
+        <ion-row>
+          <button ion-button col color="light" (click)="touchDigit($event)">4</button>
+          <button ion-button col color="light" (click)="touchDigit($event)">5</button>
+          <button ion-button col color="light" (click)="touchDigit($event)">6</button>
+          <button ion-button col color="primary" (click)="touchBinaryOperator($event)">−</button>
+        </ion-row>
+        <ion-row>
+          <button ion-button col color="light" (click)="touchDigit($event)">1</button>
+          <button ion-button col color="light" (click)="touchDigit($event)">2</button>
+          <button ion-button col color="light" (click)="touchDigit($event)">3</button>
+          <button ion-button col color="primary" (click)="touchBinaryOperator($event)">+</button>
+        </ion-row>
+        <ion-row>
+          <button ion-button col col-6 color="light" (click)="touchDigit($event)">0</button>
+          <button ion-button col color="light" (click)="touchComma()">,</button>
+          <button ion-button col color="primary" (click)="touchEquals()">=</button>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>
